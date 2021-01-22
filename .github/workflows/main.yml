@@ -56,7 +56,7 @@ jobs:
           healthcheck: https://store-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: store
-          delay: 80
+          delay: 90
 
       - name: Run API Tests
         id: run-newman
