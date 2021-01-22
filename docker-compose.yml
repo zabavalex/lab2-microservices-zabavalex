@@ -1,0 +1,61 @@
+version: "3"
+services:
+  postgres:
+    image: library/postgres:13
+    container_name: postgres
+    restart: on-failure
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./postgres/:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+  store:
+    build: ./store
+    image: zabavalex/store:v1.0
+    container_name: store
+    environment:
+      PORT: 8084
+    ports:
+      - 8084:8084
+    depends_on:
+      - postgres
+
+  order:
+    build: ./order
+    image: zabavalex/order:v1.0
+    container_name: order
+    environment:
+      PORT: 8083
+    ports:
+      - 8083:8083
+    depends_on:
+       - postgres
+
+  warehouse:
+    build: ./warehouse
+    image: zabavalex/warehouse:v1.0
+    container_name: warehouse
+    environment:
+      PORT: 8082
+    ports:
+      - 8082:8082
+    depends_on:
+      - postgres
+
+  warranty:
+    build: ./warranty
+    image: zabavalex/warranty:v1.0
+    container_name: warranty
+    environment:
+      PORT: 8081
+    ports:
+      - 8081:8081
+    depends_on:
+      - postgres
+
+volumes:
+  db-data:

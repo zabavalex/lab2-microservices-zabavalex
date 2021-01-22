@@ -1,0 +1,59 @@
+name: Build project
+on: [ push ]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build project
+        run: mvn -B -DskipTests=true package --file pom.xml
+
+      - name: Deploy order
+        uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
+          heroku_app_name: order-service-app-zav
+          heroku_email: zabava.alex@gmail.com
+          usedocker: true
+          appdir: order
+
+      - name: Deploy store
+        uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
+          heroku_app_name: store-service-app-zav
+          heroku_email: zabava.alex@gmail.com
+          usedocker: true
+          appdir: store
+
+      - name: Deploy warehouse
+        uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
+          heroku_app_name: warehouse-service-app-zav
+          heroku_email: zabava.alex@gmail.com
+          usedocker: true
+          appdir: warehouse
+
+      - name: Deploy warranty
+        uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
+          heroku_app_name: warranty-service-app-zav
+          heroku_email: zabava.alex@gmail.com
+          usedocker: true
+          appdir: warranty
+
+      - name: Run API Tests
+        id: run-newman
+        uses: anthonyvscode/newman-action@v1
+        with:
+          collection: postman/postman-collection.json
+          environment: postman/postman-heroku-environment.json
+          delayRequest: 50
+          reporters: cli
