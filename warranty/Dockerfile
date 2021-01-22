@@ -2,8 +2,8 @@ FROM openjdk:11-jdk
 
 VOLUME /tmp
 
-ENV PORT=8580
-EXPOSE 8580
+ENV PORT=8581
+EXPOSE 8581
 
 ADD target/warranty-0.0.1-SNAPSHOT.jar warranty.jar
 

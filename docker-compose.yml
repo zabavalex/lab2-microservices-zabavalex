@@ -53,7 +53,7 @@ services:
     environment:
       PORT: 8580
     ports:
-      - 8580:8580
+      - 8581:8581
     depends_on:
       - postgres
 
