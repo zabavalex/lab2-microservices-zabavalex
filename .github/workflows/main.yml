@@ -19,7 +19,7 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: order-service-app-zav
           heroku_email: zabava.alex@gmail.com
-          healthcheck: http://order-service-app-zav.herokuapp.com/manage/health
+          healthcheck: https://order-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: order
 
