@@ -51,9 +51,9 @@ services:
     image: zabavalex/warranty:v1.0
     container_name: warranty
     environment:
-      PORT: 8480
+      PORT: 8580
     ports:
-      - 8480:8480
+      - 8580:8580
     depends_on:
       - postgres
 
