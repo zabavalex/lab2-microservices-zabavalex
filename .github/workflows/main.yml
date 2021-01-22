@@ -20,10 +20,10 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: warranty-service-app-zav
           heroku_email: zabava.alex@gmail.com
-          #          healthcheck: https://warranty-service-app-zav.herokuapp.com/manage/health
+          healthcheck: https://warranty-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: warranty
-          delay: 50
+          delay: 60
 
       - name: Deploy warehouse
         uses: akhileshns/heroku-deploy@v3.4.6
@@ -31,10 +31,10 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: warehouse-service-app-zav
           heroku_email: zabava.alex@gmail.com
-#          healthcheck: https://warehouse-service-app-zav.herokuapp.com/manage/health
+          healthcheck: https://warehouse-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: warehouse
-          delay: 50
+          delay: 60
 
       - name: Deploy order
         uses: akhileshns/heroku-deploy@v3.4.6
@@ -42,10 +42,10 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: order-service-app-zav
           heroku_email: zabava.alex@gmail.com
-          #          healthcheck: https://order-service-app-zav.herokuapp.com/manage/health
+          healthcheck: https://order-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: order
-          delay: 50
+          delay: 60
 
       - name: Deploy store
         uses: akhileshns/heroku-deploy@v3.4.6
@@ -53,10 +53,10 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: store-service-app-zav
           heroku_email: zabava.alex@gmail.com
-          #          healthcheck: https://store-service-app-zav.herokuapp.com/manage/health
+          healthcheck: https://store-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: store
-          delayRequest: 50
+          delay: 60
 
       - name: Run API Tests
         id: run-newman
