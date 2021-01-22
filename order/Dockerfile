@@ -2,8 +2,8 @@ FROM openjdk:11-jdk
 
 VOLUME /tmp
 
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=8280
+EXPOSE 8280
 
 ADD target/order-0.0.1-SNAPSHOT.jar order.jar
 

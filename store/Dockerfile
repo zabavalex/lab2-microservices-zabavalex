@@ -2,8 +2,8 @@ FROM openjdk:11-jdk
 
 VOLUME /tmp
 
-ENV PORT=8085
-EXPOSE 8085
+ENV PORT=8380
+EXPOSE 8380
 
 ADD target/store-0.0.1-SNAPSHOT.jar store.jar
 

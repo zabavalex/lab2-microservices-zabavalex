@@ -18,9 +18,9 @@ services:
     image: zabavalex/store:v1.0
     container_name: store
     environment:
-      PORT: 8085
+      PORT: 8380
     ports:
-      - 8085:8085
+      - 8380:8080
     depends_on:
       - postgres
 
@@ -29,9 +29,9 @@ services:
     image: zabavalex/order:v1.0
     container_name: order
     environment:
-      PORT: 8080
+      PORT: 8280
     ports:
-      - 8080:8080
+      - 8280:8280
     depends_on:
        - postgres
 
@@ -40,9 +40,9 @@ services:
     image: zabavalex/warehouse:v1.0
     container_name: warehouse
     environment:
-      PORT: 8086
+      PORT: 8180
     ports:
-      - 8086:8086
+      - 8180:8180
     depends_on:
       - postgres
 
@@ -51,9 +51,9 @@ services:
     image: zabavalex/warranty:v1.0
     container_name: warranty
     environment:
-      PORT: 8081
+      PORT: 8080
     ports:
-      - 8081:8081
+      - 8080:8080
     depends_on:
       - postgres
 

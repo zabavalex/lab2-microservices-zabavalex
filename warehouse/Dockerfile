@@ -2,8 +2,8 @@ FROM openjdk:11-jdk
 
 VOLUME /tmp
 
-ENV PORT=8086
-EXPOSE 8086
+ENV PORT=8180
+EXPOSE 8180
 
 ADD target/warehouse-0.0.1-SNAPSHOT.jar warehouse.jar
 
