@@ -19,8 +19,10 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: order-service-app-zav
           heroku_email: zabava.alex@gmail.com
+          healthcheck: http://order-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: order
+
 
       - name: Deploy store
         uses: akhileshns/heroku-deploy@v3.4.6
@@ -28,6 +30,7 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: store-service-app-zav
           heroku_email: zabava.alex@gmail.com
+          healthcheck: http://store-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: store
 
@@ -37,6 +40,7 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: warehouse-service-app-zav
           heroku_email: zabava.alex@gmail.com
+          healthcheck: http://warehouse-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: warehouse
 
@@ -46,6 +50,7 @@ jobs:
           heroku_api_key: 7c1b05eb-5727-4f65-aa40-5bfb4db10c82
           heroku_app_name: warranty-service-app-zav
           heroku_email: zabava.alex@gmail.com
+          healthcheck: http://warranty-service-app-zav.herokuapp.com/manage/health
           usedocker: true
           appdir: warranty
 
